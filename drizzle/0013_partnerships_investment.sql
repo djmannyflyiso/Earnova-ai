@@ -1,0 +1,60 @@
+CREATE TABLE `business_terms` (
+  `id` integer PRIMARY KEY NOT NULL,
+  `mission` text NOT NULL,
+  `pilot_name` text NOT NULL,
+  `pilot_price_cents` integer NOT NULL,
+  `pilot_duration` text NOT NULL,
+  `pilot_audience` text NOT NULL,
+  `pilot_includes` text NOT NULL,
+  `growth_name` text NOT NULL,
+  `growth_price_cents` integer NOT NULL,
+  `growth_duration` text NOT NULL,
+  `growth_audience` text NOT NULL,
+  `growth_includes` text NOT NULL,
+  `enterprise_name` text NOT NULL,
+  `enterprise_price_cents` integer NOT NULL,
+  `enterprise_duration` text NOT NULL,
+  `enterprise_audience` text NOT NULL,
+  `enterprise_includes` text NOT NULL,
+  `pricing_note` text NOT NULL,
+  `seed_target_cents` integer NOT NULL,
+  `equity_min_percent` integer NOT NULL,
+  `equity_max_percent` integer NOT NULL,
+  `investment_summary` text NOT NULL,
+  `investment_terms_note` text NOT NULL,
+  `funds_app_cents` integer NOT NULL,
+  `funds_data_cents` integer NOT NULL,
+  `funds_growth_cents` integer NOT NULL,
+  `funds_sales_cents` integer NOT NULL,
+  `funds_legal_cents` integer NOT NULL,
+  `updated_at` integer NOT NULL
+);
+--> statement-breakpoint
+CREATE TABLE `commercial_inquiries` (
+  `id` integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+  `requester_profile_id` integer NOT NULL,
+  `kind` text NOT NULL,
+  `name` text NOT NULL,
+  `organization` text NOT NULL,
+  `email` text NOT NULL,
+  `tier` text,
+  `budget` text,
+  `message` text NOT NULL,
+  `status` text DEFAULT 'pending' NOT NULL,
+  `created_at` integer NOT NULL,
+  `updated_at` integer NOT NULL
+);
+--> statement-breakpoint
+INSERT INTO `business_terms` (`id`,`mission`,`pilot_name`,`pilot_price_cents`,`pilot_duration`,`pilot_audience`,`pilot_includes`,`growth_name`,`growth_price_cents`,`growth_duration`,`growth_audience`,`growth_includes`,`enterprise_name`,`enterprise_price_cents`,`enterprise_duration`,`enterprise_audience`,`enterprise_includes`,`pricing_note`,`seed_target_cents`,`equity_min_percent`,`equity_max_percent`,`investment_summary`,`investment_terms_note`,`funds_app_cents`,`funds_data_cents`,`funds_growth_cents`,`funds_sales_cents`,`funds_legal_cents`,`updated_at`) VALUES (
+  1,
+  'Earnova AI connects everyday people, AI developers, and robotics companies through smartphone-based task recordings that can help train AI systems and robots to perform real-world tasks. Our vision is to create opportunities for people to contribute to the future of AI while enabling businesses to access structured, high-quality training data.',
+  'PILOT PARTNER', 250000, '30-day pilot project', 'Startups, small businesses, and AI developers testing Earnova AI task-training capabilities.', 'One pilot task category or use case\nUp to 10 designated participants\nSmartphone-based task recording and workflow testing\nInitial performance report\nFeedback session and next-step recommendations',
+  'GROWTH PARTNER', 1000000, '90-day program', 'Growing AI companies, robotics developers, educational platforms, and businesses seeking expanded task-training capabilities.', 'Up to three task categories\nUp to 50 designated participants\nStructured video-based task collection\nPartner dashboard planning\nProgress reporting and review meetings\nPriority implementation support',
+  'ENTERPRISE PARTNER', 2500000, 'Custom program', 'Robotics manufacturers, AI laboratories, universities, and large organizations.', 'Customized AI and robotics task-training programs\nScalable participant onboarding\nData quality and review workflows\nCustom integrations, subject to technical feasibility\nDedicated account support\nNegotiated data licensing and commercial usage terms',
+  'All partnership prices are proposed starting rates. Final pricing, deliverables, participant limits, and project terms must be agreed upon by both parties.',
+  50000000, 10, 15,
+  'Earnova AI is seeking strategic investors to support platform development, AI task-training infrastructure, user acquisition, business partnerships, security, and market expansion.',
+  'Final company valuation, equity percentage, investor rights, and investment structure are subject to negotiation and appropriate legal documentation. No investment returns are guaranteed.',
+  17500000, 10000000, 10000000, 7500000, 5000000,
+  unixepoch('now') * 1000
+);

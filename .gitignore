@@ -147,3 +147,13 @@ vite.config.ts.timestamp-*
 
 # Turbo Repo
 .turbo
+
+# Earnova app artifacts (founder environment only, never committed)
+app.db
+*.db-journal
+.space-build/
+.space-build-cvm/
+.bun-cache/
+.harness/
+audits/
+dist-cvm/
